@@ -4,6 +4,11 @@
     <div class="container">
         <h1>Word Counter</h1>
         <form action="" method="POST" class="form-inline">
+        {% if wordcount_form.errors %}
+            <div class="alert alert-danger">
+                error
+            </div>
+        {% endif %}
             {{ wordcount_form.user_input.label }}
             {{ wordcount_form.user_input(
                 class="form-control",
