@@ -12,10 +12,20 @@ def index():
         user = wordcount_form.user_input.data
         words = user.split(" ")
         word_count=len(words)
-        character= list(user)
-        character_count=len(character)
+        character = list(user)
         character = [ x for x in character if x != " "]
-        (Counter(words).most_common(2))
-        (Counter(character).most_common(2))
-        
-    return render_template("index.html", wordcount_form=wordcount_form)
+        character_count=len(character)
+        most_common_words = Counter(words).most_common()
+        most_common_character = Counter(character).most_common()
+
+        return render_template(
+            "index.html",
+            wordcount_form=wordcount_form,
+            words=words, word_count=word_count, character=character,
+            character_count=character_count, most_common_words=most_common_words,
+            most_common_character=most_common_character
+        )
+
+    else:
+        return render_template("index.html", wordcount_form=wordcount_form)
+

@@ -17,5 +17,21 @@
                 Submit
             </button>
         </form>
+
+        {% if words %}
+            <p>Words by occurance:</p>
+            <ul>
+                {% for item in most_common_words %}
+                <li>Word: {{ item[0]}} ({{ item[1]}})</li>
+                {% endfor %}
+            </ul>
+
+            <p>Characters by occurance</p>
+            <ul>
+                {% for item in most_common_character %}
+                <li>Character: {{ item[0]}} ({{ item[1]}})</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
     </div>
 {% endblock %}
