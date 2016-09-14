@@ -10,28 +10,42 @@
             </div>
         {% endif %}
             {{ wordcount_form.user_input.label }}
+            <br>
             {{ wordcount_form.user_input(
-                class="form-control",
+                class="well",
                 placeholder="Enter some text.") }}
             <button type="submit" class="btn btn-primary">
                 Submit
             </button>
-        </form>
 
         {% if words %}
+           <!--  <button type="submit" class="btn btn-primary" >
+            Word list
+            </button>
+            <button type="submit" class="btn btn-primary" id="word">
+            Character list
+            </button>
+
+
+            <input type = "button" id="word"/>
+            <label for ="word"> -->
             <p>Words by occurance:</p>
-            <ul>
+            <ol>
                 {% for item in most_common_words %}
                 <li>Word: {{ item[0]}} ({{ item[1]}})</li>
                 {% endfor %}
-            </ul>
-
+            </ol>
+            <!-- </label>
+            <label for ="demo"> -->
             <p>Characters by occurance</p>
-            <ul>
+            <ol>
                 {% for item in most_common_character %}
                 <li>Character: {{ item[0]}} ({{ item[1]}})</li>
                 {% endfor %}
-            </ul>
+            </ol>
+           <!--  </label> -->
         {% endif %}
+        </form>
     </div>
+
 {% endblock %}

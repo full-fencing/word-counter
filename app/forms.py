@@ -1,7 +1,7 @@
-from wtforms import Form, StringField, validators, ValidationError
+from wtforms import Form, TextAreaField, validators, ValidationError
 
 
 class WordCount(Form):
-    user_input = StringField(
+    user_input = TextAreaField(
         "Type some words.", validators=[validators.DataRequired()]
     )
