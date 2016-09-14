@@ -1,6 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Time-table coming soon...</h1>
+<h1>Times-Table</h1>
 
+<div class="container">
+    <table class="table table-striped">
+
+        {% for line in times_table.table %}
+            <tr>
+                {% for number in line %}
+                    <td>{{ number }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</div>
 {% endblock %}

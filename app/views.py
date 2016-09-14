@@ -47,4 +47,5 @@ def calculator():
 
 @app.route("/timestable", methods=["GET", "POST"])
 def timestable():
-    return render_template("timestable.html")
+    table = TimesTable()
+    return render_template("timestable.html", times_table=table)
