@@ -2,13 +2,15 @@ from flask import render_template, request
 
 from app import app
 from app.forms import WordCount
+from app.lib.calculator import Calculator
+from app.lib.timestable import *
 from collections import Counter
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-    
+
 
 @app.route("/wordcounter", methods=["GET", "POST"])
 def wordcounter():
@@ -34,10 +36,15 @@ def wordcounter():
     else:
         return render_template("wordcounter.html", wordcount_form=wordcount_form)
 
-@app.route("/calculator")
+@app.route("/calculator", methods=["GET", "POST"])
 def calculator():
-    pass
+    cal = Calculator(request.form)
+    result = None
+    if request.method == "POST" and cal.validate():
+        result = cal.action()
 
-@app.route("/timestable")
+    return render_template("calculator.html",calculator=cal, result=result)
+
+@app.route("/timestable", methods=["GET", "POST"])
 def timestable():
-    pass
+    return render_template("timestable.html")
