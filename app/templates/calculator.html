@@ -9,18 +9,22 @@
 {{calculator.user_input2.label}}
 {{calculator.user_input2()}}
 <br><br>
-<ul id="calculator">
-{% for subfield in calculator.operators %}
-<li>
-{{subfield.label}}
-{{subfield}}
-</li>
-{% endfor %}
+
+<ul class="list-unstyled">
+    {% for subfield in calculator.operators %}
+        <li>
+        {{subfield}}
+        {{subfield.label}}
+        </li>
+    {% endfor %}
 </ul>
-<br><br>
+
+<br>
+
 <button type="submit" class="btn btn-primary">Calculate</button>
 
 </form>
+<br>
 
 RESULT : {{result}}
 
