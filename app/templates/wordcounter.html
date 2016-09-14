@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h1>Word Counter</h1>
+        <form action="" method="POST" class="form-inline">
+        {% if wordcount_form.errors %}
+            <div class="alert alert-danger">
+                error
+            </div>
+        {% endif %}
+            {{ wordcount_form.user_input.label }}
+            <br>
+            {{ wordcount_form.user_input(
+                class="well",
+                placeholder="Enter some text.") }}
+            <button type="submit" class="btn btn-primary">
+                Submit
+            </button>
+
+        {% if words %}
+           <!--  <button type="submit" class="btn btn-primary" >
+            Word list
+            </button>
+            <button type="submit" class="btn btn-primary" id="word">
+            Character list
+            </button>
+
+
+            <input type = "button" id="word"/>
+            <label for ="word"> -->
+            <p>Words by occurance:</p>
+            <ol>
+                {% for item in most_common_words %}
+                <li>Word: {{ item[0]}} ({{ item[1]}})</li>
+                {% endfor %}
+            </ol>
+            <!-- </label>
+            <label for ="demo"> -->
+            <p>Characters by occurance</p>
+            <ol>
+                {% for item in most_common_character %}
+                <li>Character: {{ item[0]}} ({{ item[1]}})</li>
+                {% endfor %}
+            </ol>
+           <!--  </label> -->
+        {% endif %}
+        </form>
+    </div>
+
+{% endblock %}
