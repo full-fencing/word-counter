@@ -29,21 +29,4 @@ class AddressBook():
         
         return result
 
-# class UserClass():
-    
-#     def __init__(self,name=None,):
-        
-#         self.description=description
-#         self.icon=icon
-#         self.dt=dt
-#         self.temp =temp
-#         self.temp_night=temp_night
-#         self.wind = wind
-#         self.pressure=pressure
-#         self.humidity=humidity
-#         self.sunrise=sunrise
-#         self.sunset=sunset
-
-#     def __str__(self):
-#         return "Description:{}, Temp: {}".format(self.description.
-#             self.temp)        
+       

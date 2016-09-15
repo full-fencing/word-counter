@@ -5,9 +5,12 @@
 
 <div class="container">
     <table class="table table-striped">
-
+    <tr>
+        <h4> {{times.table.table[0]}}</h4>
+    </tr>
         {% for line in times_table.table %}
             <tr>
+
                 {% for number in line %}
                     <td>{{ number }}</td>
                 {% endfor %}
