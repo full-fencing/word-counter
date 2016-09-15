@@ -56,8 +56,11 @@ def timestable():
 @app.route("/address", methods=["GET", "POST"])
 def addressbook():
 
-    number_of_users_form = NumberOfUsers()
-    result = AddressBook()
+    number_of_users_form = NumberOfUsers(request.form)
+    if number_of_users_form.how_many_users.data:
+        result = AddressBook(number_of_users_form.how_many_users.data)
+    else:
+        result = AddressBook()
     r = result.get_address()
     return render_template("address.html",
                            userdata=r,

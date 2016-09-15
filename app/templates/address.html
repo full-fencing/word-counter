@@ -5,11 +5,18 @@
     <hr>
 
     <div class="row">
-        <form action="" method="POST">
-            {{ number_of_users_form.user_input.label }}
-            {{ number_of_users_form.user_input }}
-        </form>
+        <div class="col-sm-12 text-centered">
+            <form action="" method="POST">
+                {{ number_of_users_form.how_many_users.label }}
+                {{ number_of_users_form.how_many_users }} 
+            <button type="submit" class="btn btn-primary">
+                Submit
+            </button>
+            </form> 
+            <br>
+        </div> 
     </div>
+        
     {% if userdata %}
         <div class="container">
             <div class="row">

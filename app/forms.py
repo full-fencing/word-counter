@@ -8,5 +8,5 @@ class WordCount(Form):
 
 
 class NumberOfUsers(Form):
-    user_input = DecimalField("How many users do you want?",
+    how_many_users = DecimalField("How many users do you want?",
                               validators=[validators.DataRequired()])
