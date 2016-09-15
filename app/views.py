@@ -1,10 +1,12 @@
 from flask import render_template, request
+import requests
 
 from app import app
 from app.forms import WordCount
 from app.lib.calculator import Calculator
 from app.lib.timestable import *
 from collections import Counter
+from app.lib.address import AddressBook
 
 @app.route("/")
 def index():
@@ -49,3 +51,17 @@ def calculator():
 def timestable():
     table = TimesTable()
     return render_template("timestable.html", times_table=table)
+
+
+@app.route("/address", methods=["GET", "POST"])
+def addressbook():
+
+    result = AddressBook()
+    r = result.get_address()
+    return render_template("address.html",userdata=r)
+
+
+
+
+
+
