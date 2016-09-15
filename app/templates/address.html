@@ -9,7 +9,91 @@
             <div class="row">
                 {% for user in userdata %}
                     <div class="col-md-3">
-                        {{user["name"]}}
+                    <table>
+                        <tr>
+                        <td>
+                           Name : 
+                        </td>
+                        <td>
+                            {{user["name"]["title"] | title}} {{user["name"]["first"] | title}} {{user["name"]["last"] | title}}
+                        </td>
+                        </tr>
+
+                        <tr>
+                        <td>
+                           Gender :
+                        </td>
+                        <td>
+                           {{user["gender"] | title}}
+                        </td>
+                        </tr>
+      
+                        <tr>
+                        <td>
+                           Address : 
+                        </td>
+                        <td>
+                          {{user["location"]["street"] | title}}
+                          <br>
+                          {{user["location"]["city"] | title}}
+                          <br>
+                          {{user["location"]["state"] | title}}
+                          <br>
+                          {{user["location"]["postcode"] | title}}
+                        </td>
+                        </tr>
+
+                        <tr>
+                        <td>
+                           Email:
+                        </td>
+                        <td>
+                           {{user["email"] | title}}
+                        </td>
+                        </tr>
+
+                        <tr>
+                        <td>
+                           Phone :
+                        </td>
+                        <td>
+                           {{user["phone"] | title}}
+                        </td>
+                        </tr>
+
+                        <tr>
+                        <td>
+                           Cell :
+                        </td>
+                        <td>
+                           {{user["cell"] | title}}
+                        </td>
+                        </tr>
+
+                        <tr>
+                        <td>
+                           Nationality :
+                        </td>
+                        <td>
+                           {{user["nat"] | title}}
+                        </td>
+                        </tr>
+
+                        <tr>
+                        <td>
+                            
+                        </td>
+                        <td>
+                           <img src="{{user['picture']['thumbnail']}}">
+                        </td>
+                        </tr>
+
+                    </table>
+                         
+
+                        
+
+
                     </div>
                 {% endfor %}
             </div>

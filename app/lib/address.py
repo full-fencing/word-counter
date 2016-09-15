@@ -25,17 +25,9 @@ class AddressBook():
         r = requests.get('http://api.randomuser.me/', params=payload)
 
         result = r.json()
-        return result["results"]
-        # return DailyWeather(description=result['weather'][0]['description'],
-        #     icon = result['weather'][0]['icon'],
-        #     temp = result['main']['temp'],
-        #     dt = result['dt'],
-        #     wind = result['wind']['speed'],
-        #     pressure= result['main']['pressure'],
-        #     humidity = result['main']['humidity'],
-        #     sunrise = result['sys']['sunrise'],
-        #     sunset = result['sys']['sunset'],
-        #     )
+        result= result["results"]
+        
+        return result
 
 # class UserClass():
     
