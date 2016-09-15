@@ -10,8 +10,8 @@ class Calculator(Form):
         choices=[('+','Add'),('-','Subtract'),('*','Multiply'),('/','Divide')])
 
     def action(self):
-        Number1=int(self.user_input1.data)
-        Number2 = int(self.user_input2.data)
+        Number1=(self.user_input1.data)
+        Number2 = (self.user_input2.data)
         if (self.operators.data == "+"):
             return Number1 + Number2
         elif (self.operators.data == "-"):

@@ -4,18 +4,36 @@
 <h1>Times-Table</h1>
 
 <div class="container">
-    <table class="table table-striped">
-    <tr>
-        <h4> {{times.table.table[0]}}</h4>
-    </tr>
+    <table class="table table-striped ">
+    <thead>
+        <tr>
+            <th>
+                *
+            </th>
+            
+            {% for line in times_table.table %}
+            <th>
+            {{line[0]}}
+            </th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
         {% for line in times_table.table %}
-            <tr>
+
+        <tr>
+
+        <th>
+            {{line[0]}}
+        </th>
+
 
                 {% for number in line %}
                     <td>{{ number }}</td>
                 {% endfor %}
             </tr>
         {% endfor %}
+        </tbody>
     </table>
 </div>
 {% endblock %}
