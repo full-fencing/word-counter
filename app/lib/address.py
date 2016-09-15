@@ -8,11 +8,13 @@ class AddressBook():
     """docstring for OpenWeatherAPI"""
     # data = requests.get('http://api.randomuser.me/')
     # userdata = data.json()
+    def __init__(self, results=10):
+        self.results = results
 
 
-    def get_payload(self,results=10):
+    def get_payload(self):
 
-        payload={"results":results}
+        payload={"results": self.results}
 
         return payload
 
@@ -26,7 +28,7 @@ class AddressBook():
 
         result = r.json()
         result= result["results"]
-        
+
         return result
 
-       
+

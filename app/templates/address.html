@@ -3,20 +3,39 @@
 {% block content %}
     <h2>Address Book</h2>
     <hr>
+
+    <div class="row">
+        <div class="col-sm-12 text-centered">
+            <form action="" method="POST">
+                {{ number_of_users_form.how_many_users.label }}
+                {{ number_of_users_form.how_many_users }} 
+            <button type="submit" class="btn btn-primary">
+                Submit
+            </button>
+            </form> 
+            <br>
+        </div> 
+    </div>
+        
     {% if userdata %}
         <div class="container">
-            <h3>{{Acnncn}}</h3>
             <div class="row">
                 {% for user in userdata %}
-                    <div class="col-md-3">
-                    <table>
+                    <div class="col-md-5" style="margin-bottom: 20px;
+                        margin-right: 10px;">
+                    <table class="table table-striped">
                         <tr>
-                        <td>
-                           Name : 
+                        <td colspan=2 class="text-center">
+                            <h4>{{user["name"]["title"] | title}}
+                                {{user["name"]["first"] | title}}
+                                {{user["name"]["last"] | title}}<h4>
                         </td>
-                        <td>
-                            {{user["name"]["title"] | title}} {{user["name"]["first"] | title}} {{user["name"]["last"] | title}}
-                        </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan=2 class="text-center">
+                                <img class="img" src="{{user['picture']['large']}}">
+                            </td>
                         </tr>
 
                         <tr>
@@ -72,21 +91,13 @@
 
                         <tr>
                         <td>
-                           Nationality :
+                           Nationality:
                         </td>
                         <td>
-                           {{user["nat"] | title}}
+                           {{user["nat"] | upper}}
                         </td>
                         </tr>
 
-                        <tr>
-                        <td>
-                            
-                        </td>
-                        <td>
-                           <img src="{{user['picture']['thumbnail']}}">
-                        </td>
-                        </tr>
 
                     </table>
                          

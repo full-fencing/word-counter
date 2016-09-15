@@ -2,7 +2,7 @@ from flask import render_template, request
 import requests
 
 from app import app
-from app.forms import WordCount
+from app.forms import WordCount, NumberOfUsers
 from app.lib.calculator import Calculator
 from app.lib.timestable import *
 from collections import Counter
@@ -56,9 +56,15 @@ def timestable():
 @app.route("/address", methods=["GET", "POST"])
 def addressbook():
 
-    result = AddressBook()
+    number_of_users_form = NumberOfUsers(request.form)
+    if number_of_users_form.how_many_users.data:
+        result = AddressBook(number_of_users_form.how_many_users.data)
+    else:
+        result = AddressBook()
     r = result.get_address()
-    return render_template("address.html",userdata=r)
+    return render_template("address.html",
+                           userdata=r,
+                           number_of_users_form=number_of_users_form)
 
 
 
