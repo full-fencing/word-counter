@@ -9,11 +9,14 @@ class CNNSpider (scrapy.Spider):
 
         for href in response.css ('ul.cn--idx-1 a::attr(href)'):
             full_url = response.urljoin(href.extract())
-            yield scrapy.Request(full_url, callback = self.parse_article)
+            yield scrapy.Request(full_url, callback=self.parse_article)
 
     def parse_article(self,response):
 
         yield{
-        'title': response.css('h1.pg-headline::text').extract_first()
+            'title': response.css('h1.pg-headline::text').extract_first(),
+            'article': response.xpath(
+                '//div[@class="zn-body__paragraph"]/text()'
+            ).extract()
         }
 
