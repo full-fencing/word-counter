@@ -7,7 +7,9 @@ class CNNSpider (scrapy.Spider):
 
     def parse(self,response):
 
-        for href in response.css ('ul.cn--idx-1 a::attr(href)'):
+        for href in response.xpath(
+            '//h3[@class="cd__headline"]//a/@href'
+        ):
             full_url = response.urljoin(href.extract())
             yield scrapy.Request(full_url, callback=self.parse_article)
 
