@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="" method = "POST" class="form-inline">
+    {{user.user_input.label}}
+    {{user.user_input()}}
+    <br>
+    <button type="submit" class="btn btn-primary"> submit </button>
+</form>
+
+
+{% if result %}
+<div class="container">
+<h3>Github Repositories of {{user.user_input.data}}</h3>
+<ul>
+{% for item in result %}
+
+<li><a href="{{item.html_url}}">{{ item.name| title }} </a></li>
+    
+
+{% endfor %}
+</ul>
+
+{% else %}
+<h4>No repository in the github.</h4>
+</div>
+
+
+{% endif %}
+
+{% endblock %}

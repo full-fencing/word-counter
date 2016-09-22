@@ -7,6 +7,7 @@ from app.lib.calculator import Calculator
 from app.lib.timestable import *
 from collections import Counter
 from app.lib.address import AddressBook
+from app.lib.repos import Repository, RepoForm
 
 @app.route("/")
 def index():
@@ -65,6 +66,20 @@ def addressbook():
     return render_template("address.html",
                            userdata=r,
                            number_of_users_form=number_of_users_form)
+
+@app.route("/repos",methods=["GET","POST"])
+
+def repository():
+
+    user = RepoForm(request.form)
+    if request.method == "POST" and user.validate():
+        github_user = user.user_input.data
+        repo = Repository(github_user)
+        result = repo.get_repos()
+
+    else:
+        result =None
+    return render_template("repos.html",user=user,result = result)
 
 
 
